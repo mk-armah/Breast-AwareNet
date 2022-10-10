@@ -13,7 +13,8 @@ class Config:
   def plant_seeds(self):
     """plant seeds for reproduceability
     
-    Tips: It is essential to know which point of your breast you will start the massage from, it will help to assert whether you've checked every corner of the breast or not
+    Breast Cancer Awareness Tip:
+      >>> It is essential to know which point of the breast to start the massage from, it will help to assert whether you've checked every corner of the breast or not
     """
     np.random.seed(self.seed)
     torch.manual_seed(self.seed)
