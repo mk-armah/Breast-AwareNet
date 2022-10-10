@@ -4,6 +4,7 @@ import numpy as np
 import torch
 import torchvision
 from sklearn.model_selection import train_test_split
+from Config import config
 
         
 class BreastMassage:
@@ -23,8 +24,6 @@ class BreastMassage:
       or by an AI predicting the cancer stage from a given Ultrasound Image.. e.g BreastAwareNet"""
 
     self.classes = ["benign","malignant","normal"] 
-    path = os.path.join("/content/drive/MyDrive/Coding-Stuffs/Artificial Intelligence/Computer Vision /Breast_Cancer_Segmentation/Dataset_BUSI_with_GT/","malignant")
-
 
   def smooch(self,func):
 
@@ -38,7 +37,7 @@ class BreastMassage:
       
       for i in self.classes: 
 
-        path = os.path.join("/content/drive/MyDrive/Coding-Stuffs/Artificial Intelligence/Computer Vision /Breast_Cancer_Segmentation/Dataset_BUSI_with_GT/",i)
+        path = os.path.join(config.working_dir,i)
 
         masks,images = func(path)
 
@@ -48,7 +47,6 @@ class BreastMassage:
         yield Img_train, Img_test, mask_train, mask_test #yields per round
 
     return wrapper
-
 
 
   @smooch
