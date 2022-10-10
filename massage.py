@@ -4,7 +4,7 @@ import numpy as np
 import torch
 import torchvision
 from sklearn.model_selection import train_test_split
-from Config import config
+from config import Config
 
         
 class BreastMassage:
@@ -37,7 +37,7 @@ class BreastMassage:
       
       for i in self.classes: 
 
-        path = os.path.join(config.working_dir,i)
+        path = os.path.join(Config.working_dir,i)
 
         masks,images = func(path)
 
